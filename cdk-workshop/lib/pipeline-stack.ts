@@ -18,7 +18,7 @@ export class WorkshopPipelineStack extends cdk.Stack {
         const pipeline = new CodePipeline(this, 'Pipeline', {
             pipelineName: 'WorkshopPipeline',
             synth: new CodeBuildStep('SynthStep', {
-                input: CodePipelineSource.gitHub("https://github.com/OnlyD/aws/tree/main/cdk-workshop", "main", {
+                input: CodePipelineSource.gitHub("OnlyD/aws/tree/main/cdk-workshop", "main", {
                     authentication: cdk.SecretValue.secretsManager('github-access-token-secret'),
                 }),
                 installCommands: [
